@@ -4,12 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-  "start":"node server",
-  "server":"nodemon server"
+    "start": "node server",
+    "server": "nodemon server"
   },
   "author": "Casey Peng",
   "license": "MIT",
   "dependencies": {
+    "config": "^3.3.3",
     "express": "^4.17.1",
     "express-validator": "^6.8.0",
     "mongoose": "^5.11.8"
