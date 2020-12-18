@@ -15,5 +15,5 @@ const UserSchema = new mongoose.Schema({
         required:true
     }
 })
-
+//creating a model mongoose.model(modelName,schema)
 module.exports = User = mongoose.model("user",UserSchema)
