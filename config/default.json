@@ -1,3 +1,4 @@
 {
-    "mongoURI":"mongodb+srv://caseyPeng321:Metlife2019$@healthindex.r8r9q.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "mongoURI":"mongodb+srv://caseyPeng321:Metlife2019$@healthindex.r8r9q.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "webToken":"thisisasecrettoken"
 }

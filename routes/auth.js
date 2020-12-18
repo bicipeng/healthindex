@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
-
-// Get api api/auth
+const auth = require("../helper/auth")
+// Get  /auth
 //get personal information if you are login 
-router.get("/", (req, res) => res.send("auth route"))
+router.get("/", auth, (req, res) => res.send("auth route"))
 
 
 module.exports = router
