@@ -1,0 +1,50 @@
+.form-container{
+    padding-block-start:100px;
+   
+    
+}
+.form .form-group {
+    margin: 1.2rem 0;
+  }
+  
+  .form .form-text {
+    display: block;
+    margin-top: 0.3rem;
+    color: #888;
+  }
+   .p .my-1{
+         margin:0 auto;
+   }
+.form input,
+  .form select,
+  .form textarea {
+    display: block;
+    margin:0 auto;
+    width: 50%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+  }
+ 
+  .form input[type='submit'],
+  button {
+    font: inherit;
+  }
+  
+  .form .social-input {
+    display: flex;
+  }
+  
+  .form .social-input i {
+    padding: 0.5rem;
+    width: 4rem;
+  }
+
+ .form-container .signup {
+    /* font-size: 3rem;
+    line-height: 1.2; */
+    /* margin-bottom: 1rem; */
+    color:#17a2b8;
+    margin:auto;
+    vertical-align: middle;
+  }

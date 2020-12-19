@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import Reactfccc from 'react';
 
 const Login = () => {
     return (<div>Log In</div>  );
