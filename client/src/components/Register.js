@@ -1,7 +1,11 @@
 
 import React, { Fragment, useState } from 'react';
+import { Link, Redirect } from "react-router-dom"
+import Axios from "axios"
+import { register } from "./../actions/auth"
+import {connect} from "react-redux"
 import "./Form.css"
-const Register = () => {
+const Register = ({register,isAuth}) => {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -11,19 +15,21 @@ const Register = () => {
 
     const { name, email, password, passwordConfirmed } = formData
     const handleChange = (evt) => setFormData({ ...formData, [evt.target.name]: evt.target.value })
-    const handleSumit = evt =>{
+    const handleSumit = async evt => {
         evt.preventDefault();
-        if(passwordConfirmed!==password){
-            console.log("password do not match ")
-        }else {
-            console.log(formData)
+        if (passwordConfirmed !== password) {
+          alert("passwords do not match ")
+        } else {
+           register({name,email,password,passwordConfirmed})
         }
     }
-
+if(isAuth){
+    <Redirect to = "/dashboard"/>
+}
     return (<Fragment>
         <div className="form-container" >
             <h1 className="signup">Sign Up</h1>
-            <p className="lead"><i className="fas fa-user"></i> Create Your Account</p>
+            <p className="lead"><i class="fas fa-user-md"></i>Create Your Account</p>
             <form className="form" onSubmit={handleSumit}>
                 <div className="form-group">
                     <input type="text" placeholder="Name" value={name} name="name" onChange={handleChange} required />
@@ -35,10 +41,10 @@ const Register = () => {
                 <div className="form-group">
                     <input
                         type="password"
-                        placeholder="Password" 
+                        placeholder="Password"
                         name="password"
                         minLength="8"
-                        value={password} 
+                        value={password}
                         onChange={handleChange}
                         required
                     />
@@ -49,7 +55,7 @@ const Register = () => {
                         placeholder="Confirm Password"
                         name="passwordConfirmed"
                         minLength="8"
-                        value={passwordConfirmed} 
+                        value={passwordConfirmed}
                         onChange={handleChange}
                         required
                     />
@@ -57,10 +63,12 @@ const Register = () => {
                 <input type="submit" className="btn btn-primary" value="Register" />
             </form>
             <p className="my-1">
-                Already have an account? <a href="login.html">Sign In</a>
+                Already have an account? <Link to="/login">Sign In</Link>
             </p>
         </div>
     </Fragment>);
 }
-
-export default Register;
+const mapStateToProps = (state)=>({
+isAuth:state.auth.isAuth
+})
+export default connect(mapStateToProps, { register })(Register);
