@@ -3,11 +3,13 @@ import Navbar from "./components/Narbar"
 import Landing from "./components/Landing"
 import Login from "./components/Login"
 import Register from "./components/Register"
+import Dashboard from "./components/dashboard/Dashboard"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { Provider } from "react-redux"
 import store from "./store"
 import Axios from "axios"
 import "./App.css"
+import PrivateRoute from "./components/PrivateRoute"
 import { loadUser } from "./actions/auth"
 
 
@@ -28,6 +30,7 @@ const App = () => {
           <Switch>
             <Route exact path="/register" component={Register} />
             <Route exact path="/Login" component={Login} />
+            < PrivateRoute exact path="/dashboard" component={Dashboard}/>
           </Switch>
         </Fragment>
       </BrowserRouter>

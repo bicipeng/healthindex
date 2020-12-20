@@ -7,20 +7,21 @@ import {connect} from "react-redux"
 import "./Form.css"
 const Register = ({register,isAuth}) => {
     const [formData, setFormData] = useState({
+     
         name: "",
         email: "",
         password: "",
         passwordConfirmed: ""
     })
 
-    const { name, email, password, passwordConfirmed } = formData
+    const {   name, email, password, passwordConfirmed } = formData
     const handleChange = (evt) => setFormData({ ...formData, [evt.target.name]: evt.target.value })
     const handleSumit = async evt => {
         evt.preventDefault();
         if (passwordConfirmed !== password) {
           alert("passwords do not match ")
         } else {
-           register({name,email,password,passwordConfirmed})
+           register({ name,email,password,passwordConfirmed})
         }
     }
 if(isAuth){
@@ -33,6 +34,7 @@ if(isAuth){
             <form className="form" onSubmit={handleSumit}>
                 <div className="form-group">
                     <input type="text" placeholder="Name" value={name} name="name" onChange={handleChange} required />
+                  
                 </div>
                 <div className="form-group">
                     <input type="email" placeholder="Email Address" name="email" value={email} onChange={handleChange} required />
