@@ -1,5 +1,5 @@
 //register user 
-import { REGISTER_SUCCESS, REGISTER_FAIL, UNAUTHRIZED, USER_FOUND ,LOGIN_FAIL,LOGIN_SUCCESS} from "../actions/types"
+import { REGISTER_SUCCESS, REGISTER_FAIL, UNAUTHRIZED, USER_FOUND ,LOGIN_FAIL,LOGIN_SUCCESS,LOG_OUT} from "../actions/types"
 
 const initialState = {
     //token is stored in localStorage which has a getItem method
@@ -21,6 +21,7 @@ export default function (state = initialState, action) {
                 loading: false
             }
         case REGISTER_FAIL:
+        case LOG_OUT: 
             localStorage.removeItem("token")
             return {
                 ...state,
