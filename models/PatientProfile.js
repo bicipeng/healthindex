@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const UserProfileSchema = new mongoose.Schema({
+const PatientProfileSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user"
@@ -16,10 +16,12 @@ const UserProfileSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    field: {
-        type: String,
-        required: true
-    }
+    pharmacy:String,
+    insurance:String,
+    policyId: String,
+    medicineHistory:String,
+    surgicalHistory:String
+
 })
 
-module.exports = UserProfile = mongoose.model("userProfile",UserProfileSchema)
+module.exports = PatientProfile = mongoose.model("patientProfile",PatientProfileSchema)

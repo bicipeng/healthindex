@@ -8,7 +8,9 @@ const { check, validationResult } = require("express-validator")
 // post api 
 //register user 
 router.post("/", [
-    check("name", 'Name is required').not().isEmpty(),
+    check("firstName", 'First Name is required').not().isEmpty(),
+    check("lastName", 'Last Name is required').not().isEmpty(),
+    check("NPI", 'NPI is required').not().isEmpty(),
     check("email", "Please enter a valid email").isEmail(),
     check("password", "Password should be at least 8 or more character").isLength({ min: 8 })
 ], async (req, res) => {
@@ -17,7 +19,7 @@ router.post("/", [
         return res.status(400).json({ errors: errors.array() })
     }
 
-    const { name, email, password } = req.body
+    const { firstName,lastName, NPI,email, password } = req.body
     try {
         //check if user already exists
         let user = await User.findOne({ email })
@@ -26,7 +28,9 @@ router.post("/", [
         }
         // if user doesn't exit,create a new instance of user 
         user = new User({
-            name,
+            firstName,
+            lastName,
+            NPI,
             email,
             password
         })

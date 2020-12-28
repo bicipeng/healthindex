@@ -1,3 +1,5 @@
+import { connect } from "react-redux"
+
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
 export const REGISTER_FAIL = "REGISTER_FAIL"
 export const USER_FOUND = "USER_FOUND"
@@ -5,3 +7,9 @@ export const UNAUTHRIZED = "UNAUTHRIZED"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAIL = "LOGIN_FAIL"
 export const LOG_OUT = "LOG_OUT"
+export const GET_PROFILES = " GET_PROFILES"
+export const PROFILE_ERROR = "PORFILE_ERROR"
+export const CLEAR_PROFILE = "CLEAR_PROFILE"
+export const CREATE_PROFILE = "CREATE_PROFIL"
+export const UPDATE_PROFILE = "UPDATE_PROFILE"
+export const GET_PATIENT_PROFILE ="GET_PATIENT_PROFILE"

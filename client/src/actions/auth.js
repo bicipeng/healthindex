@@ -1,30 +1,32 @@
 import Axios from "axios";
-import { REGISTER_SUCCESS, REGISTER_FAIL, USER_FOUND, UNAUTHRIZED, LOGIN_FAIL, LOGIN_SUCCESS,LOG_OUT } from "./types";
+import { REGISTER_SUCCESS, REGISTER_FAIL, USER_FOUND, UNAUTHRIZED, LOGIN_FAIL, LOGIN_SUCCESS,LOG_OUT,CLEAR_PROFILE } from "./types";
 
 
-export const register = ({ name, email, password, passwordConfirmed }) => async dispatch => {
+export const register = ({ firstName,lastName,NPI, email, password, passwordConfirmed }) => async dispatch => {
     try {
         const user = {
-            name, email, password, passwordConfirmed
+            firstName,lastName,NPI, email, password, passwordConfirmed
         }
         const res = await Axios.post("/users", user, {
             headers: {
                 "Conten-Type": "application/json"
             }
         })
+        console.log("****",res.data)
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
         })
         dispatch(loadUser())
     } catch (error) {
+        console.log(error)
         dispatch({
             type: REGISTER_FAIL
         })
     }
 }
 //if we have a token, send it to the backend ,hit /auth route to check if user is logged in or not 
-//we need the token to stay in the localStorage s.t. a user can stay log in 
+ 
 
 export const loadUser = () => async dispatch => {
     if (localStorage.token) {
@@ -73,7 +75,8 @@ export const login = ({ email, password }) => async dispatch => {
 }
 
 export const logout = () => async dispath =>{
-   dispath({
+   dispath({type:CLEAR_PROFILE,
        type: LOG_OUT
+       
    })
 }

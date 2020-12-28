@@ -5,6 +5,9 @@ import { logout } from "../actions/auth"
 import "./Narbar.css"
 const Navbar = ({ auth: { isAuth, loading }, logout }) => {
     const userViews = (<ul>
+         <li>
+            <Link to="/dashboard" ><i className="far fa-id-badge"></i>Dashboard</Link>
+        </li>
         <li>
             <Link to="/" onClick={logout}><i className="fas fa-sign-out-alt"></i>Logout</Link>
         </li>
