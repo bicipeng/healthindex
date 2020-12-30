@@ -1,8 +1,9 @@
 .form-container{
     padding-block-start:100px;
-   
+ 
     
 }
+
 .form .form-group {
     margin: 1.2rem 0;
   }
@@ -11,6 +12,7 @@
     display: block;
     margin-top: 0.3rem;
     color: #888;
+    padding-left: 30px;
   }
    .p .my-1{
          margin:0 auto;
@@ -31,20 +33,16 @@
     font: inherit;
   }
   
-  .form .social-input {
-    display: flex;
-  }
-  
-  .form .social-input i {
-    padding: 0.5rem;
-    width: 4rem;
-  }
 
- .form-container .signup {
+ .form-container .login {
     /* font-size: 3rem;
     line-height: 1.2; */
     /* margin-bottom: 1rem; */
     color:#17a2b8;
     margin:auto;
-    vertical-align: middle;
+  text-align:center
+  }
+  h1,
+  p{
+    text-align: center;
   }

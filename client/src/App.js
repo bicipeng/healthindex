@@ -5,6 +5,7 @@ import Login from "./components/Login"
 import Register from "./components/Register"
 import Dashboard from "./components/dashboard/Dashboard"
 import CreatePatientProfile from "./components/CreatePatientProfile"
+import PatientCard from "./components/PatientCard"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import { Provider } from "react-redux"
 import store from "./store"
@@ -17,11 +18,11 @@ import { loadUser } from "./actions/auth"
 
 
 const App = () => {
-  if(localStorage.token){
-    Axios.defaults.headers.common['x-auth-token'] =localStorage.token
-        }else{
-            delete Axios.defaults.headers.common['x-auth-token']
-        }
+  if (localStorage.token) {
+    Axios.defaults.headers.common['x-auth-token'] = localStorage.token
+  } else {
+    delete Axios.defaults.headers.common['x-auth-token']
+  }
   useEffect(() => {
     store.dispatch(loadUser())
   }, [])
@@ -32,9 +33,9 @@ const App = () => {
           <Switch>
             <Route exact path="/register" component={Register} />
             <Route exact path="/Login" component={Login} />
-            < PrivateRoute exact path="/dashboard" component={Dashboard}/>
-            < PrivateRoute exact path="/create-new-patient" component={CreatePatientProfile}/>
-
+            < PrivateRoute exact path="/dashboard" component={Dashboard} />
+            < PrivateRoute exact path="/create-new-patient" component={CreatePatientProfile} />
+            <PrivateRoute exact path="/patients/:id" component={PatientCard} />
           </Switch>
         </Fragment>
       </BrowserRouter>

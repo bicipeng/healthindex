@@ -70,6 +70,7 @@ export const getPatientProfiles =()=>async dispatch=>{
 export const  getPatientProfile =(id) =>async dispatch =>{
     try {
         const res = await Axios.get(`/patients/${id}`)
+        console.log("here in get single profile",res)
         dispatch({
             type: GET_PATIENT_PROFILE,
             payload:res.data

@@ -1,4 +1,4 @@
-import { PROFILE_ERROR, GET_PROFILES, CLEAR_PROFILE } from "../actions/types"
+import { PROFILE_ERROR, GET_PROFILES, GET_PATIENT_PROFILE, CLEAR_PROFILE } from "../actions/types"
 
 const initialState = {
     profile: null,
@@ -22,7 +22,8 @@ export default function (state = initialState, action) {
         case CLEAR_PROFILE:
             return {
                 ...state,
-                profile: null,
+                profiles: [],
+                profile:null,
                 loading: false
             }
 
@@ -32,6 +33,12 @@ export default function (state = initialState, action) {
                 error: payload,
                 loading: false
 
+            }
+        case GET_PATIENT_PROFILE:
+            return {
+                ...state,
+                profile: payload,
+                loading: false
             }
         default:
             return state

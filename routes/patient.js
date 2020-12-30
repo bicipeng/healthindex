@@ -40,37 +40,39 @@ router.post("/newpatient", [auth, [
     }
 })
 //get all pts' profiles
-router.get("/patients",auth,async (req,res)=>{
-try {
-    const patients= await PatientProfile.find({},null,{sort:{lastName:1}})
-    console.log("getting pt?",patients)
-    res.json(patients)
-} catch (error) {
-    console.log(error)
-}
+router.get("/patients", auth, async (req, res) => {
+    try {
+        const allPatients = await PatientProfile.find({}, null, { sort: { lastName: 1 } })
+     const patients = allPatients.filter(pt =>pt.user.toString()===req.user.id)
+         console.log("....",patients)
+        res.json(patients)
+    } catch (error) {
+        console.log(error)
+    }
 }
 )
 //get single pt's profile
-router.get("/patients/:id", auth, async(req,res)=>{
+router.get("/patients/:id", auth, async (req, res) => {
     try {
         const patient = await PatientProfile.findById(req.params.id)
-        if(!patient){
-            return res.status(404).json({message:"Patient not found"})
+        if (!patient) {
+            return res.status(404).json({ message: "Patient not found" })
         }
+
         res.json(patient)
     } catch (error) {
         console.log(error)
     }
 })
 //delete pt's profile
-router.delete("/patients/:id",auth, async(req,res)=>{
+router.delete("/patients/:id", auth, async (req, res) => {
     try {
         const post = await PatientProfile.findById(req.params.id)
-        if(!post){
-            return res.json({message:"Post not found"})
+        if (!post) {
+            return res.json({ message: "Post not found" })
         }
-     post.remove()
-        res.json({message:"Post Removed"})
+        post.remove()
+        res.json({ message: "Post Removed" })
     } catch (error) {
         console.log(error)
     }

@@ -26,13 +26,13 @@ const Register = ({ register, isAuth }) => {
             register({ firstName, lastName, NPI, email, password, passwordConfirmed })
         }
     }
-    console.log("Registerjs", isAuth)
+
     if (isAuth) {
       return  <Redirect to="/dashboard" />
     }
     return (<Fragment>
         <div className="form-container" >
-            <h1 className="signup">Sign Up</h1>
+            <h1 className="login">Sign Up</h1>
             <p className="lead"><i class="fas fa-user-md"></i>Create Your Account</p>
             <form className="form" onSubmit={handleSumit}>
                 <div className="form-group">

@@ -16,27 +16,6 @@ const Login = ({ login,isAuth }) => {
     const handleChange = (evt) => setFormData({ ...formData, [evt.target.name]: evt.target.value })
     const handleSumit = async evt => {
         evt.preventDefault();
-        // if (passwordConfirmed !== password) {
-        //     console.log("password do not match ")
-        // } else {
-        //     const newUser = {
-        //         name,
-        //         email,
-        //         password,
-        //         passwordConfirmed
-        //     }
-        //     try {
-        //         const res = await Axios.post("/users", newUser, {
-        //             headers: {
-        //                 "Content-Type": "application/json"
-        //             }
-        //         })
-
-        //         console.log(res.data)
-        //     } catch (error) {
-        //         console.log(error)
-        //     }
-        // }
         login({ email, password })
     }
 if(isAuth){
@@ -44,7 +23,7 @@ if(isAuth){
 }
     return (<Fragment>
         <div className="form-container" >
-            <h1 className="signup">Log in </h1>
+            <h1 className="login">Log in </h1>
             <p className="lead"><i className="fas fa-user-md"></i>Sign in to Your Account</p>
             <form className="form" onSubmit={handleSumit}>
 

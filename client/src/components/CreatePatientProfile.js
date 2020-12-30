@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux"
+import {Link} from "react-router-dom"
+import "./Form.css"
 
 
 import { createProfile} from '../actions/profile';
@@ -32,7 +34,7 @@ const CreatePatientProfile = ({createProfile}) => {
         createProfile(formData )
     }
     return (
-        <div>
+        <div className="form-container">
             <h1 className="large text-primary">
                 Create New Patient
       </h1>
@@ -85,7 +87,7 @@ const CreatePatientProfile = ({createProfile}) => {
                 </div>
 
                 <input type="submit" className="btn btn-primary my-1" />
-                <a className="btn btn-light my-1" href="dashboard.html">Go Back</a>
+                <Link to="/dashboard" className="btn btn-light my-1" >Go Back</Link>
             </form>
         </div>
     );

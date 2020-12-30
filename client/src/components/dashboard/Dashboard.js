@@ -1,36 +1,34 @@
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 
 import React, { Fragment, useEffect } from 'react';
 import { connect } from "react-redux"
 import { loadUser } from '../../actions/auth';
-import { getPatientProfiles} from "../../actions/profile"
-import "../Form.css"
-import PateintProfiles from "../PateintProfiles";
-const Dashboard = ({  auth: { user }, profile: { profile, loading } }) => {
-    // useEffect(() => {
-    //     getPatientProfiles()
-    // }, [])
+import { getPatientProfiles } from "../../actions/profile"
+// import "../Form.css"
+import "../dashboard.css"
+import PatientProfiles from "../PatientProfiles";
+const Dashboard = ({ auth: { user }, getPatientProfiles, profile: { profiles } }) => {
+    useEffect(() => {
+        getPatientProfiles()
+    }, [])
 
-    // if (loading && user === null) {
-    //     <h2>Loading.... </h2>
-    // } else {
-    //     <Fragment />
-    // }
-   
-    console.log(".......dashboar User", user)
 
-    return  (<div className="form-container" >
+    if (!user) {
+        return <h2>Loading...</h2>
+    }
+
+    return (<div className="container" >
         <h1 className="large text-primary">Dashboard</h1>
-        <div>
+        <div className="lead-sub">
             <i><i className="fas fa-user-md"></i>Welcome {user.firstName}, {user.lastName}</i>
         </div>
         <div>
-            <small>NPI: {user.NPI}</small>
+            <p className="lead-sub">NPI: {user.NPI}</p>
         </div>
-        <div> {profile !== null ? <PateintProfiles/> : <Fragment />}</div>
+        <div> {profiles.length !== 0 ? (<PatientProfiles profiles={profiles} />) : <Fragment />}</div>
         <div> <Fragment>
-            <small>Create New:  </small>
-            <Link to="/create-new-patient" className="btn btn-primary my-1">Patient Profile</Link></Fragment>
+
+            <Link to="/create-new-patient" className="btn btn-primary my-1">New patient</Link></Fragment>
         </div>
 
     </div>);
@@ -40,5 +38,5 @@ const mapStateToProps = state => ({
     profile: state.profile
 })
 
-export default connect(mapStateToProps, null)(Dashboard);
+export default connect(mapStateToProps, { getPatientProfiles })(Dashboard);
 
