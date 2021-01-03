@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getPatientProfile } from '../actions/profile';
 import "./patientCard.css"
 import { QRCode } from "react-qr-svg"
+import moment from "moment"
 
 const styles = {
     root: {
@@ -27,12 +28,15 @@ const PatientCard = ({ getPatientProfile, match, profile: { profile, loading } }
         return <h3>Loading...</h3>
     }
     const { firstName, lastName, dateOfBirth, pharmacy, insurance, policyId, medicineHistory, surgicalHistory } = profile
+
+    let d = dateOfBirth.slice(0,10)
+
     return (<div className="container">
 
         <ul className="unordered-list">
             <li className="list-item">First Name: {firstName}</li>
             <li className="list-item">Last Name: {lastName}</li>
-            <li className="list-item">Date of Birth: {dateOfBirth}</li>
+            <li className="list-item">Date of Birth: {d}</li>
             <li className="list-item">Pharmacy: {pharmacy ? pharmacy : "not specify"}</li>
             <li className="list-item">Insurance: {insurance ? insurance : "not specify"}</li>
             <li className="list-item">PolicyId: {policyId ? policyId : "not specify"}</li>
