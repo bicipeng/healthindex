@@ -15,7 +15,7 @@ app.use("/auth", require("./routes/auth"))
 app.use("/profiles", require("./routes/profiles"))
 app.use("/", require("./routes/patient"))
 
-//static aceest
+//static aceest for deployment
 if (process.env.NODE_ENV == "production") {
     //set static folder
     app.use(express.static("client/build"))
