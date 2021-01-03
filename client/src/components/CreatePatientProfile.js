@@ -87,7 +87,7 @@ const CreatePatientProfile = ({createProfile}) => {
                 </div>
 
                 <input type="submit" className="btn btn-primary my-1" />
-                <Link to="/dashboard" className="btn btn-light my-1" >Go Back</Link>
+                <Link to="/dashboard" className="btn btn-primary my-1" >Go Back</Link>
             </form>
         </div>
     );

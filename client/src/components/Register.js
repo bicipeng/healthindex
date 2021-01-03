@@ -1,7 +1,6 @@
 
 import React, { Fragment, useState } from 'react';
 import { Link, Redirect } from "react-router-dom"
-import Axios from "axios"
 import { register } from "./../actions/auth"
 import { connect } from "react-redux"
 import "./Form.css"

@@ -12,7 +12,6 @@ app.get("/",(req,res)=>res.send("API RUNNING"))
 app.use("/users",require("./routes/users"))
 app.use("/auth",require("./routes/auth"))
 app.use("/profiles",require("./routes/profiles"))
-app.use("/posts",require("./routes/posts"))
 app.use("/",require("./routes/patient"))
 
 const PORT = process.env.PORT || 8000

@@ -1,15 +1,10 @@
 
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Link, Route } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const PatientProfiles = ({ profiles }) => {
-    // useEffect(()=>{
-    //     getPatientProfiles()
-    // },[])
-    // if(loading && profiles.length!==0){
-    //     return <h2>Loading....</h2>
-    // }
+
 
     return (<Fragment>
         { !profiles ? (<h2>Loading...</h2>) : (<div>
@@ -28,7 +23,5 @@ const PatientProfiles = ({ profiles }) => {
 
     </Fragment>);
 }
-//  const mapStateToProps = state =>({
-// profile:state.profile
-//  })
+
 export default connect()(PatientProfiles);

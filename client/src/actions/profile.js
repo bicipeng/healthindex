@@ -1,5 +1,5 @@
 import Axios from "axios"
-import { GET_PROFILES, PROFILE_ERROR, CLEAR_PROFILE, CREATE_PROFILE,GET_PATIENT_PROFILE } from "./types"
+import { GET_PROFILES, PROFILE_ERROR,  CREATE_PROFILE,GET_PATIENT_PROFILE } from "./types"
 
 //get current users profile
 //profile/me
@@ -23,12 +23,13 @@ export const getUserProfile = () => async dispatch => {
 }
 
 //create pt profile
+//if pt already exist ,want to update?
 
 export const createProfile = (formData) => async dispatch => {
         try {
           
             const res = await Axios.post("/newpatient", formData, { headers: { "Content-Type": 'application/json' } })
-              console.log("res data in createprofile", res.data)
+            alert("Patient Created!")
             dispatch({
                 type: CREATE_PROFILE,
                 payload: res.data

@@ -44,7 +44,6 @@ router.get("/patients", auth, async (req, res) => {
     try {
         const allPatients = await PatientProfile.find({}, null, { sort: { lastName: 1 } })
      const patients = allPatients.filter(pt =>pt.user.toString()===req.user.id)
-         console.log("....",patients)
         res.json(patients)
     } catch (error) {
         console.log(error)

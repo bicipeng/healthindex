@@ -3,8 +3,19 @@ import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { getPatientProfile } from '../actions/profile';
 import "./patientCard.css"
+import { QRCode } from "react-qr-svg"
 
-
+const styles = {
+    root: {
+        fontFamily: 'sans-serif',
+    },
+    h1: {
+        textAlign: 'center',
+    },
+    qrcode: {
+        textAlign: 'center',
+    },
+}
 
 const PatientCard = ({ getPatientProfile, match, profile: { profile, loading } }) => {
     useEffect(() => {
@@ -32,6 +43,25 @@ const PatientCard = ({ getPatientProfile, match, profile: { profile, loading } }
         <div>
             {loading || profile === null ?
                 (<h2>Loading...</h2>) : <Fragment><Link to="/dashboard" className="btn btn-primary my-1">Back To Dashboard</Link></Fragment>}
+        </div>
+        <div style={styles.qrcode}>
+            <h1 style={styles.h1}>Patient Information</h1>
+            <div style={styles.qrcode}>
+                <QRCode
+                    level="Q"
+                    style={{ width: 256 }}
+                    value={JSON.stringify({
+                        firstName,
+                        lastName,
+                        dateOfBirth,
+                        pharmacy,
+                        insurance,
+                        policyId,
+                        medicineHistory,
+                        surgicalHistory
+                    })}
+                />
+            </div>
         </div>
 
     </div>)

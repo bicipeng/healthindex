@@ -1,11 +1,4 @@
-/* Global Styles */
-:root {
-  --primary-color: #17a2b8;
-  --dark-color: #343a40;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
-}
+
 
 * {
   box-sizing: border-box;
@@ -51,12 +44,11 @@ img {
   line-height: 1.2;
   margin-bottom: 1rem;
 }
-
-/* .large {
+.large {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-} */
+} 
 .list-item {
   display: flex;
   justify-content: space-between;
@@ -66,6 +58,11 @@ img {
   margin:auto;
   text-align: center;
 } 
+.list-items{
+  display: flex;
+justify-content: center;
+text-align: start;
+}
 
 .lead {
   font-size: 1.5rem;
@@ -74,6 +71,8 @@ img {
 .lead-sub{
   font-size: 1.5rem;
   margin-bottom:0.3rem;
+  display:flex;
+
 }
 
 .text-center {
@@ -85,7 +84,7 @@ img {
 }
 
 .text-dark {
-  color: var(--dark-color);
+  color:#343a40;
 }
 
 /* Padding */
@@ -188,27 +187,12 @@ img {
 
 .btn-dark,
 .bg-dark,
-.badge-dark,
-.alert-dark {
-  background: var(--dark-color);
+.badge-dark {
+  background: #343a40;
   color: #fff;
 }
 
-.btn-danger,
-.bg-danger,
-.badge-danger,
-.alert-danger {
-  background: var(--danger-color);
-  color: #fff;
-}
 
-.btn-success,
-.bg-success,
-.badge-success,
-.alert-success {
-  background: var(--success-color);
-  color: #fff;
-}
 
 .btn-white,
 .bg-white,
@@ -273,16 +257,7 @@ img {
   margin-bottom: 1rem;
 }
 
-/* Profile Page */
-.profile-grid {
-  display: grid;
-  grid-template-areas:
-    'top top'
-    'about about'
-    'exp edu'
-    'github github';
-  grid-gap: 1rem;
-}
+
 
 .profile-top {
   grid-area: top;
@@ -297,64 +272,9 @@ img {
   width: 250px;
 }
 
-.profile-top .icons a {
-  color: #fff;
-  margin: 0 0.3rem;
-}
-
-.profile-top .icons a:hover {
-  color: var(--dark-color);
-}
-
-.profile-about {
-  grid-area: about;
-  text-align: center;
-}
-
-.profile-about .skills {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.profile-exp {
-  grid-area: exp;
-}
-
-.profile-edu {
-  grid-area: edu;
-}
-
-.profile-exp h2,
-.profile-edu h2 {
-  margin-bottom: 1rem;
-}
-
-.profile-exp > div,
-.profile-edu > div {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: #ccc 1px dotted;
-}
-
-.profile-exp > div:last-child,
-.profile-edu > div:last-child {
-  border: 0;
-}
-
-.profile-exp p,
-.profile-edu p {
-  margin: 0.5rem 0;
-}
-
-
-
-
-
 /* Posts Page */
 .post-form .post-form-header {
-  background: var(--primary-color);
+  background: #17a2b8;
   padding: 0.5rem;
 }
 
@@ -365,21 +285,6 @@ img {
   align-items: center;
 }
 
-.post > div:first-child {
-  text-align: center;
-}
-
-.post img {
-  width: 100px;
-}
-
-.post .comment-count {
-  background:  #f4f4f4;
-  color: var(--primary-color);
-  padding: 0.1rem 0.2rem;
-  border-radius: 5px;
-  font-size: 0.8rem;
-}
 
 .post .post-date {
   color: #aaa;
@@ -428,18 +333,8 @@ img {
     margin: auto;
   }
 
-  .profile-grid {
-    grid-template-areas:
-      'top'
-      'about'
-      'exp'
-      'edu'
-      'github';
-  }
 
-  .profile-about .skills {
-    flex-direction: column;
-  }
+  
 
   .dash-buttons a {
     display: block;

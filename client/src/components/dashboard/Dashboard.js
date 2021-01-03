@@ -1,16 +1,16 @@
-import { Link, Redirect } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import React, { Fragment, useEffect } from 'react';
 import { connect } from "react-redux"
-import { loadUser } from '../../actions/auth';
+
 import { getPatientProfiles } from "../../actions/profile"
-// import "../Form.css"
+
 import "../dashboard.css"
 import PatientProfiles from "../PatientProfiles";
 const Dashboard = ({ auth: { user }, getPatientProfiles, profile: { profiles } }) => {
     useEffect(() => {
         getPatientProfiles()
-    }, [])
+    }, [getPatientProfiles])
 
 
     if (!user) {
@@ -28,7 +28,7 @@ const Dashboard = ({ auth: { user }, getPatientProfiles, profile: { profiles } }
         <div> {profiles.length !== 0 ? (<PatientProfiles profiles={profiles} />) : <Fragment />}</div>
         <div> <Fragment>
 
-            <Link to="/create-new-patient" className="btn btn-primary my-1">New patient</Link></Fragment>
+            <Link to="/create-new-patient" className="btn btn-primary">New patient</Link></Fragment>
         </div>
 
     </div>);

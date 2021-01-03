@@ -12,7 +12,7 @@ export const register = ({ firstName,lastName,NPI, email, password, passwordConf
                 "Conten-Type": "application/json"
             }
         })
-        console.log("****",res.data)
+   
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -74,9 +74,11 @@ export const login = ({ email, password }) => async dispatch => {
     }
 }
 
-export const logout = () => async dispath =>{
-   dispath({type:CLEAR_PROFILE,
-       type: LOG_OUT
+export const logout = () => async dispatch =>{
+   dispatch({type:CLEAR_PROFILE
        
+   })
+   dispatch({
+       type:LOG_OUT
    })
 }
