@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { getPatientProfile } from '../actions/profile';
 import "./patientCard.css"
 import { QRCode } from "react-qr-svg"
-import moment from "moment"
-
 const styles = {
     root: {
         fontFamily: 'sans-serif',
@@ -29,7 +27,7 @@ const PatientCard = ({ getPatientProfile, match, profile: { profile, loading } }
     }
     const { firstName, lastName, dateOfBirth, pharmacy, insurance, policyId, medicineHistory, surgicalHistory } = profile
 
-    let d = dateOfBirth.slice(0,10)
+    let d = dateOfBirth.slice(0, 10)
 
     return (<div className="container">
 
@@ -69,7 +67,6 @@ const PatientCard = ({ getPatientProfile, match, profile: { profile, loading } }
         </div>
 
     </div>)
-
 }
 
 const mapStateToProps = state => ({
