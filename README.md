@@ -7,7 +7,7 @@ patient management application that allows doctors to create QR Code with accura
 for each patient. Once the QR Codes are issued to patients, medical histories could be accessed by scanning the QR Codes.
 
 ## Link ##
-https://health-index.herokuapp.com/m
+https://health-index.herokuapp.com/
 
 ## Technologies Used  ##
 Frontend: Create-React-App, React-Redux, React-Hooks, Axios,HTML, CSS <br/>
